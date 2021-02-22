@@ -7,11 +7,9 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class MainPage extends PageObject {
 
-	private static final String FREQUENCY_RADIO = "//input[@value='%s']";
-	private static final String DECISIVE_FACTORS_CHECKBOX = "//input[@name='%s']";
-	private static final String PAYMENT_TYPE = "//option[contains(text(),'%s')]";
-	private static final String RATE_EXPERIENCE = "//div[@class='slider-values active']/div[text()='%d']";
-	private static final String PAYMENT_MODE = "//select[@id='preferred-payment']//option[contains(text(),'%s')]";
+	private static final String FEATURE = "//div[contains(text(),'%s')]";
+	private static final String RESOURCE_MENU = "//a[contains(text(),'%s')]";
+	private static final String INTEGRATION_TITLE = "//h2[contains(text(),'%s')]";
 
 	@FindBy(xpath = "//input[@name='email']")
 	WebElementFacade email;
@@ -39,6 +37,27 @@ public class MainPage extends PageObject {
 
 	@FindBy(xpath = "//span[contains(@class, 'ui-slider-handle')]")
 	WebElementFacade slider;
+
+	@FindBy(xpath = "//img[@alt='circle-outlined']")
+	WebElementFacade tools;
+
+	@FindBy(xpath = "//a[contains(@href,'ci-cd')]")
+	WebElementFacade learnMore;
+
+	@FindBy(xpath = "//a[contains(text(),'Resources')]")
+	WebElementFacade resources;
+
+	public WebElementFacade getResources() {
+		return resources;
+	}
+
+	public WebElementFacade getLearnMore() {
+		return learnMore;
+	}
+
+	public WebElementFacade getTools() {
+		return tools;
+	}
 
 	public WebElementFacade getSlider() {
 		return slider;
@@ -80,30 +99,18 @@ public class MainPage extends PageObject {
 		super(driver);
 	}
 
-	public WebElementFacade getFrequencyRadio(String label) {
-		WebElementFacade menuLabel = findBy(String.format(FREQUENCY_RADIO, label));
+	public WebElementFacade getFeature(String label) {
+		WebElementFacade menuLabel = findBy(String.format(FEATURE, label));
 		return menuLabel;
 	}
 
-	public WebElementFacade getDecisiveFactors(String label) {
-		WebElementFacade menuLabel = findBy(String.format(DECISIVE_FACTORS_CHECKBOX, label));
-		menuLabel.click();
+	public WebElementFacade getResources(String label) {
+		WebElementFacade menuLabel = findBy(String.format(RESOURCE_MENU, label));
 		return menuLabel;
 	}
 
-	public WebElementFacade getPaymentType(String label) {
-		WebElementFacade menuLabel = findBy(String.format(PAYMENT_TYPE, label));
-		return menuLabel;
-	}
-
-	public WebElementFacade getRateExperience(int label) {
-		WebElementFacade menuLabel = findBy(String.format(RATE_EXPERIENCE, label));
-		return menuLabel;
-	}
-
-	public WebElementFacade getPaymentMode(String label) {
-		WebElementFacade menuLabel = findBy(String.format(PAYMENT_MODE, label));
-		menuLabel.click();
+	public WebElementFacade getIntegrationTitle(String label) {
+		WebElementFacade menuLabel = findBy(String.format(INTEGRATION_TITLE, label));
 		return menuLabel;
 	}
 

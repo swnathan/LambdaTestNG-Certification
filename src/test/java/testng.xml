@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="true">
-  <test name="Test">
-    <classes>
-      <class name="test.ShoppingTest"/>
-      <methods>
-        <include name="testShopping"/>
-      </methods>
+<suite name="Suite" parallel="classes" thread-count = "4">
+  <test name="Test1">
+  
+      <parameter name="os" value="windows 10" />
+      <parameter name="browser" value="chrome" />
+      <parameter name="version" value="88.0" />
+     <classes>
+      <class name="LambdaTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test>
+  
+   <test name="Test2">
+      <parameter name="os" value="macOS Sierra" />
+      <parameter name="browser" value="MicrosoftEdge" />
+      <parameter name="version" value="87.0" />
+    <classes>
+      <class name="LambdaTest"/>
+    </classes>
+  </test>
+  
+   <test name="Test3">
+       <parameter name="os" value="Windows 7" />
+      <parameter name="browser" value="Firefox" />
+      <parameter name="version" value="82.0" />
+    <classes>
+      <class name="LambdaTest"/>
+    </classes>
+  </test>
+  
+   <test name="Test4">
+      <parameter name="os" value="windows 10" />
+      <parameter name="browser" value="Internet Explorer" />
+      <parameter name="version" value="11.0" />
+    <classes>
+      <class name="LambdaTest"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->
